@@ -1,5 +1,6 @@
 // api key - 973e6b52b32e4212b225f59d1af1b44f
 
+
 var searchTerm = "Trump";
 
 var numRecords = 1;
@@ -62,3 +63,4 @@ for(var i = 0; i < numCalls; i++){
 	});
 
 }
+
