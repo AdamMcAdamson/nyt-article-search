@@ -53,7 +53,13 @@ for(var i = 0; i < numCalls; i++){
 		for(var j = 0; j < numToUse; j++){
 
 			// The array number in the DOM 
-			var articleNumber = (i * 10) + j + 1;
+			// Broken b/c asyncronous
+			// var articleNumber = (i * 10) + j + 1;
+			
+			// temp artcileNumber
+			var articleNumber = j+1;
+
+
 
 			// Current Article obj
 			var artCur = articleArr[j];
