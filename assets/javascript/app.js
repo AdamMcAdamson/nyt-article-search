@@ -1,21 +1,21 @@
-// api key - 973e6b52b32e4212b225f59d1af1b44f
+var apiKey = "973e6b52b32e4212b225f59d1af1b44f";
 
-// TEMP VALUES
-// --------------------------
+// Required search form inputs
 var searchTerm;
-
 var numRecords;
 
+// Optional search form inputs
 var startYear;
 var endYear;
 
+// Total number of articles searched
 var searchArticleNumber = 0;
 
-// --------------------------
 
-// Article array
+// Article array from API call
 var articleArr;
 
+// Articles div element in DOM
 var articlesDiv;
 
 // Number of ajax calls (# of pages)
@@ -23,38 +23,43 @@ var numCalls;
 
 
 $( document ).ready(function(){
-
+	// Grab DOM element 
 	articlesDiv = $("#articles");
 
+	// When Search button is clicked, grab form info 
+	// and call processing function makeRequests
 	$("#search-button").on("click", function(){
 		var keywords = $("#search-terms").val().trim();
 		var numRecords = parseInt($("#num-drop").find(":selected").text());
 		var start = $("#year-start").val().trim();
 		var end = $("#year-end").val().trim();
 
+		// Search and Processing function
 		makeRequests(keywords, numRecords, start, end);
 	});
 
+	// Clear previous search results
 	$("#clear-button").on("click", function(){
 		articlesDiv.empty();
 	});
 
-
-
 });
 
+// Search query and Processing function
 function makeRequests(keywords, num, start, end){
 
+	// Required form Info
 	searchTerm = keywords;
-
 	numRecords = num;
 
+	// Optional form info
 	startYear = start || null;
-
 	endYear = end || null;
 
+	// For checking proper input
 	var startYearNum, endYearNum;
 	
+	// Check for proper startYear input
 	if(startYear !== null){
 		startYearNum = parseInt(startYear);
 		if(startYearNum.toString.length !== 4){
@@ -62,7 +67,7 @@ function makeRequests(keywords, num, start, end){
 		}
 	}
 
-
+	// Check for proper endYear input
 	if(endYear !== null){
 		endYearNum = parseInt(endYear);
 		if(endYearNum.toString.length !== 4){
@@ -70,11 +75,12 @@ function makeRequests(keywords, num, start, end){
 		}
 	}
 
-	// Parameters to search with
+	// Default Parameters to search with
 	var searchParameters = $.param({
-		'api-key': '973e6b52b32e4212b225f59d1af1b44f',
+		'api-key': apiKey,
 		'q': searchTerm,
 	});
+
 
 	if(startYear !== null){
 		searchParameters += $.param({
