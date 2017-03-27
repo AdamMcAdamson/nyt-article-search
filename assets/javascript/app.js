@@ -14,6 +14,8 @@ var endYear = "2011";
 // Article array
 var articleArr;
 
+var articlesDiv = $("#articles");
+
 // Number of ajax calls (# of pages)
 var numCalls = Math.floor(numRecords/10) + 1;
 
@@ -56,7 +58,7 @@ for(var i = 0; i < numCalls; i++){
 			// Broken b/c asyncronous
 			// var articleNumber = (i * 10) + j + 1;
 			
-			// temp artcileNumber
+			// temp articleNumber
 			var articleNumber = j+1;
 
 
@@ -79,6 +81,8 @@ for(var i = 0; i < numCalls; i++){
 			// Link to full Article
 			var webLink = artCur.web_url;
 
+
+
 			// Debug Output
 			console.log("__________ARTICLE_________");
 			console.log("Number: " + articleNumber);
@@ -91,6 +95,25 @@ for(var i = 0; i < numCalls; i++){
 
 			console.log("\n\n_____________CLEAR______________\n\n");
 
+			var artCurDiv = $("<div>");
+
+			var titleTag = $("<h3>");
+
+			titleTag.append("<b class='label' id='article-num-" + articleNumber + "'>" + articleNumber + "</b>")
+
+			titleTag.append("<b class='article-title' id='title-" + articleNumber + "'>" + articleTitle + "</b>");
+
+			artCurDiv.append(titleTag);
+
+			artCurDiv.append("<p class='byline' id='byline-" + articleNumber + "''>" + author + "</p>");
+			
+			artCurDiv.append("<p class='section' id='section-" + articleNumber + "''>Section: " + section + "</p>");
+
+			artCurDiv.append("<p class='date' id='date-" + articleNumber + "'>" + pubDate + "</p>");
+
+			artCurDiv.append("<a class='link' id='link-" + articleNumber + "' href='" + webLink + "'>" + webLink + "</a>");
+
+			articlesDiv.append(artCurDiv);
 
 		}
 
