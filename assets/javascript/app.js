@@ -8,6 +8,9 @@ var numRecords;
 
 var startYear;
 var endYear;
+
+var searchArticleNumber = 0;
+
 // --------------------------
 
 // Article array
@@ -21,17 +24,22 @@ var numCalls;
 
 $( document ).ready(function(){
 
+	articlesDiv = $("#articles");
 
 	$("#search-button").on("click", function(){
 		var keywords = $("#search-terms").val().trim();
-		var numRecords = $("#num-drop").find(":selected").text();
+		var numRecords = parseInt($("#num-drop").find(":selected").text());
 		var start = $("#year-start").val().trim();
 		var end = $("#year-end").val().trim();
 
 		makeRequests(keywords, numRecords, start, end);
 	});
 
-	articlesDiv = $("#articles");
+	$("#clear-button").on("click", function(){
+		articlesDiv.empty();
+	});
+
+
 
 });
 
@@ -101,7 +109,7 @@ function makeRequests(keywords, num, start, end){
 			// var articleNumber = (i * 10) + j + 1;
 			
 			// temp articleNumber
-			var articleNumber = j+1;
+			var articleNumber = searchArticleNumber + j+1;
 
 
 
@@ -158,6 +166,8 @@ function makeRequests(keywords, num, start, end){
 			articlesDiv.append(artCurDiv);
 
 		}
+
+		searchArticleNumber += numRecords;
 
 	});
 
