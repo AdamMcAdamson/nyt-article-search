@@ -40,6 +40,7 @@ $( document ).ready(function(){
 
 	// Clear previous search results
 	$("#clear-button").on("click", function(){
+		searchArticleNumber = 0;
 		articlesDiv.empty();
 	});
 
