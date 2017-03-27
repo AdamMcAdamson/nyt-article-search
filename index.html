@@ -33,6 +33,15 @@ button {
 	color: white;
 	background-color: #95A5A6;
 }
+
+button:hover {
+background-color: #4F7476;
+}
+
+button:active {
+background-color: #5B6882;
+}
+
 aside{
 	margin-top:20px;
 	margin-left:150px;
@@ -66,8 +75,8 @@ aside{
   <section>
   <form>
   <div class="form-group">
-    <label for="formGroupExampleInput">Search Terms: </label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="">
+    <label for="search-terms">Search Terms: </label>
+    <input type="text" class="form-control" id="search-terms" placeholder="">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Number of Records to Retrieve: </label>
@@ -79,19 +88,19 @@ aside{
    </select>
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">Start Year (Optional) </label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+    <label for="year-start">Start Year (Optional) </label>
+    <input type="text" class="form-control" id="year-start" placeholder="">
   </div>
   <div class="form-group">
-    <label for="formGroupExampleInput2">End Year (Optional) </label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="">
+    <label for="year-end">End Year (Optional) </label>
+    <input type="text" class="form-control" id="year-end" placeholder="">
   </div>
-  <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-search"></span>  Search</button>
-   <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-trash"></span>  Clear Results</button>
+  <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-search"></span>Search</button>
+   <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-trash"></span>Clear Results</button>
 </form>
 </section>
 <aside>
-<strong><span class="glyphicon glyphicon-list-alt"></span>  Search Parameters</strong>
+<strong><span class="glyphicon glyphicon-list-alt"></span>Search Parameters</strong>
 </aside>
 <div id=articles>
 </div>
