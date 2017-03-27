@@ -137,9 +137,9 @@ function makeRequests(keywords, num, start, end){
 
 			console.log("\n\n_____________CLEAR______________\n\n");
 
-			var artCurDiv = $("<div>");
+			var artCurDiv = $("<div class='article-div' id='article-div-" + articleNumber + "'>");
 
-			var titleTag = $("<h3>");
+			var titleTag = $("<h3 class='title-tag' id='title-tag-" + articleNumber + "'>");
 
 			titleTag.append("<span class='article-num' id='article-num-" + articleNumber + "'>" + articleNumber + "</span>")
 
