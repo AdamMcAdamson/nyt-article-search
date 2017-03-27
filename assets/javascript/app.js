@@ -33,7 +33,7 @@ $( document ).ready(function(){
 
 	articlesDiv = $("#articles");
 
-}
+});
 
 function makeRequests(keywords, num, start, end){
 
